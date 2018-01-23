@@ -1,9 +1,8 @@
 package algorithm;
 
-import java.util.List;
 import java.util.Stack;
 
-public class TwoNumbers {
+public class TwoNumbersII {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
@@ -142,7 +141,7 @@ public class TwoNumbers {
 
 
     public static void main(String[] args) {
-        TwoNumbers tn = new TwoNumbers();
+        TwoNumbersII tn = new TwoNumbersII();
         ListNode l1 = new ListNode(2);
         l1.next = new ListNode(4);
         l1.next.next = new ListNode(3);
