@@ -3,51 +3,58 @@ package algorithm;
 public class TwoNumbers {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        int carry =0;
 
-        int [] la = new int[100];
-        int [] lb = new int[100];
-        int i = 0;
-        int j = 0;
-        while(l1 != null) {
-            la[i] = l1.val;
-            l1 = l1.next;
-            i++;
-        }
+        ListNode newHead = new ListNode(0);
+        ListNode p1 = l1, p2 = l2, p3=newHead;
 
-        while(l2 != null) {
-            lb[j] = l2.val;
-            l2 = l2.next;
-            j++;
-        }
+        while(p1 != null || p2 != null){
+            if(p1 != null){
+                carry += p1.val;
+                p1 = p1.next;
+            }
 
-        int l1lenth = i;
-        int l2lenth = j;
-        int sum1 = 0;
-        int sum2 = 0;
-        for(i = l1lenth-1; i >= 0; i--) {
-            sum1 += la[i] * Math.pow(10, i);
-        }
-        for(j = l2lenth-1; j >= 0; j--) {
-            sum2 += lb[j] * Math.pow(10, j);
+            if(p2 != null){
+                carry += p2.val;
+                p2 = p2.next;
+            }
+
+            p3.next = new ListNode(carry%10);
+            p3 = p3.next;
+            carry /= 10;
         }
 
-        int sum = sum1 + sum2;
-        int[] l3 = new int[100];
-        int k = 0;
-        while(sum !=0 ) {
-            l3[k] = sum%10;
-            sum /= 10;
-            k++;
-        }
-        ListNode result = new ListNode(l3[k-1]);
-        for(int len = k-2; len >=0; len--) {
-            result.next = new ListNode(l3[len]);
-           
+        if(carry==1)
+            p3.next=new ListNode(1);
 
-        }
-        return result;
+        return newHead.next;
     }
 
+    
+    public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
+        ListNode ret = new ListNode(0);
+        ListNode cur = ret;
+
+        int sum = 0;
+        while (true) {
+            if (l1 != null) {
+                sum += l1.val;
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                sum += l2.val;
+                l2 = l2.next;
+            }
+            cur.val = sum % 10;
+            sum /= 10;
+            if (l1 != null || l2 != null || sum != 0) {
+                cur = (cur.next = new ListNode(0));
+            } else {
+                break;
+            }
+        }
+        return ret;
+    }
 
     public static class ListNode {
         int val;
@@ -57,22 +64,5 @@ public class TwoNumbers {
         }
     }
 
-
-    public static void main(String[] args) {
-        TwoNumbers tn = new TwoNumbers();
-        ListNode l1 = new ListNode(2);
-        l1.next = new ListNode(4);
-        l1.next.next = new ListNode(3);
-
-//        System.out.println(l1.val + "===" + l1.next.val + "====" + l1.next.next.val);
-
-        ListNode l2 = new ListNode(5);
-        l2.next = new ListNode(6);
-        l2.next.next = new ListNode(4);
-
-        ListNode res = tn.addTwoNumbers(l1, l2);
-        System.out.println(res.val + "===" + res.next.val + "====" + res.next.next.val);
-    }
-
-
 }
+
