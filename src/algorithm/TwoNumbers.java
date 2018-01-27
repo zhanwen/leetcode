@@ -30,7 +30,7 @@ public class TwoNumbers {
         return newHead.next;
     }
 
-    
+
     public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
         ListNode ret = new ListNode(0);
         ListNode cur = ret;

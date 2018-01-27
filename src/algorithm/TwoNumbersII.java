@@ -74,7 +74,6 @@ public class TwoNumbersII {
         }
     }
 
-
     // 2--4--3
     // 3--4--2
     private ListNode reverseList(ListNode head) {
@@ -138,7 +137,6 @@ public class TwoNumbersII {
         }
         return dummy.next;
     }
-
 
     public static void main(String[] args) {
         TwoNumbersII tn = new TwoNumbersII();
