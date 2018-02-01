@@ -38,10 +38,28 @@ public class LongestCommonPrefix {
         return sb.toString();
     }
 
+    /**
+     * 使用java自带的indexOf函数来判断是否出现子串
+     * @param strs  字符串数组
+     * @return  最长公共子串
+     */
+    public String longestCommonPrefix2(String[] strs) {
+        if(strs==null || strs.length==0) return "";
+        String prefix = strs[0];
+        int i=1;
+        while(i<strs.length){
+            //若strs[i]在prefix中或者两者相同结果为false，否则为true
+            while(strs[i].indexOf(prefix)!=0)
+                //每次缩小范围来求最小子串
+                prefix = prefix.substring(0,prefix.length()-1);
+            i++;
+        }
+        return prefix;
+    }
     public static void main(String[] args) {
         LongestCommonPrefix lcp = new LongestCommonPrefix();
         String[] strs = {"1234", "1234", "4", "123"};
-        String res = lcp.longestCommonPrefix(strs);
+        String res = lcp.longestCommonPrefix2(strs);
         System.out.println(res);
 
     }
