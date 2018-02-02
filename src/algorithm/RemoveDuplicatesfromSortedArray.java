@@ -46,6 +46,24 @@ public class RemoveDuplicatesfromSortedArray {
         return map.size();
     }
 
+    /**
+     * 方法3
+     * @param nums  输入的数组
+     * @return  去重之后的数组长度
+     */
+    public int removeDuplicates3(int[] nums) {
+
+        int res = 1;
+        for (int i = 1; i < nums.length; ++i) {
+            if (nums[i] != nums[i - 1]) {
+                nums[res] = nums[i];
+                ++res;
+            }
+        }
+        return res;
+    }
+
+
 
     public static void main(String[] args) {
         RemoveDuplicatesfromSortedArray test = new RemoveDuplicatesfromSortedArray();
