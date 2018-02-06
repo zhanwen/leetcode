@@ -1,7 +1,12 @@
 package algorithm;
 
 public class CountandSay {
-
+    /**
+     * 统计前面出现的数字并将其打印出来
+     * 这题有点绕，但是细读还是可以理解的。就是将前面出现的数字做统计并进行下一轮的输出。
+     * @param n
+     * @return
+     */
     public String countAndSay(int n) {
         if(n == 1){
             return "1";
