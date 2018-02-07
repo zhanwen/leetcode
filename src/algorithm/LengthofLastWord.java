@@ -19,10 +19,18 @@ public class LengthofLastWord {
         return len;
     }
 
+    /**
+     * 一个字符串以" "分隔，求出最后一个单词的长度，若最后一个单词不存在，则返回0
+     * 正确解法：先将不符合的情况排除，不符合的情况全部返回0
+     * 对于符合的情况，先将字符串划分为字符串数组，然后直接返回最后一个字符串的长度。
+     * @param s 字符串
+     * @return  最后一个字符串的长度
+     */
     public int lengthOfLastWord2(String s) {
 
         if(" ".equals(s) || "".equals(s) || s == null) return 0;
         String[] str = s.split(" ");
+        // 排除"   "多个空格的情况
         if(str.length == 0) return 0;
         int len = str[str.length-1].length();
 //        int index = s.lastIndexOf(" ");
