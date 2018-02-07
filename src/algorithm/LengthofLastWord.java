@@ -2,8 +2,13 @@ package algorithm;
 
 public class LengthofLastWord {
 
+    /**
+     * 一个字符串以" "分隔，求出最后一个单词的长度，若最后一个单词不存在，则返回0
+     * 第一次读完这题的时候，以为是求出所有的字符串，然后返回最长的那个字符串的长度，所以这个方法是理解错了。
+     * @param s 字符串
+     * @return  最后一个字符串的长度
+     */
     public int lengthOfLastWord(String s) {
-
         int len = 0;
         String[] str = s.split(" ");
         for(int i = 0; i < str.length; i++) {
