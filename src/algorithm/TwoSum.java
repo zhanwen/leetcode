@@ -56,7 +56,6 @@ public class TwoSum {
     }
 
     /**
-     * 运行时间为9ms
      * @param nums
      * @param target
      * @return
