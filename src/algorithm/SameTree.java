@@ -2,6 +2,14 @@ package algorithm;
 
 public class SameTree {
 
+    /**
+     * 判断是否为同一颗树
+     * 根节点相同，并且左右子树都相同时，才为同一颗树
+     * 典型的判断方法就是使用递归进行判断，将左右子树看成新的一颗树，直到遍历完
+     * @param p 树
+     * @param q 树
+     * @return  true 表示同一颗树 false 表示不是同一颗树
+     */
     public boolean isSameTree(TreeNode p, TreeNode q) {
         if (p == null) {
             return q == null ? true : false;
